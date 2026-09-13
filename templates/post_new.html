@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid p-5 text-center">
+<h1>New Entry</h1>
+<table class="table">
+    <tr><td>
+        0
+    </td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td></tr>
+<tr>
+    <td>
+                        {% load static %}
+   <img src="{% static 'images/Angry.png' %}" class="moodimage"></td>
+   <td><img src="{% static 'images/Worst.png' %}" class="moodimage"></td>
+   <td> <img src="{% static 'images/Bad.png' %}" class="moodimage"></td>
+   <td>  <img src="{% static 'images/Neutral.png' %}" class="moodimage"></td>
+   <td> <img src="{% static 'images/Good.png' %}" class="moodimage"></td>
+   <td> <img src="{% static 'images/Best.png' %}" class="moodimage"></td>
+</tr>
+<tr>
+    <td>0 - Angry</td>
+    <td>1 - Worst</td>
+    <td>2 - Bad</td>
+    <td>3 - Neutral</td>
+    <td>4 - Good</td>
+    <td>5 - Best</td>
+</tr>
+</table>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save">
+</form>
+</div>
+{% endblock content %}

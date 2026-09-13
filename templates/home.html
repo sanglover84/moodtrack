@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+         <div class="grid-container">
+
+    {% for post in post_list %}
+            <div class="card text-center">
+
+            <h4><a href="{% url 'post_detail' post.pk %}">{{ post.feelings }}</a></h4>
+            <div id="images">
+                {% load static %}
+                {% if post.mood >= 5 %}
+                 <img src="{% static 'images/Best.png' %}" class="moodimage m-3">
+                {% elif post.mood == 4 %}
+                <img src="{% static 'images/Good.png' %}" class="moodimage m-3">
+                {% elif post.mood == 3 %}
+                <img src="{% static 'images/Neutral.png' %}" class="moodimage m-3">
+                {% elif post.mood == 2 %}
+                <img src="{% static 'images/Bad.png' %}" class="moodimage m-3">
+                {% elif post.mood == 1 %}
+                <img src="{% static 'images/Worst.png' %}" class="moodimage m-3">
+                {% elif post.mood == 0 %}
+                <img src="{% static 'images/Angry.png' %}" class="moodimage m-3">
+                {% endif %}
+            </div>
+            <p>{{ post.date }}</p>
+        </div>
+    {% empty %}
+        <p>No posts found.</p>
+    {% endfor %}
+                </div>
+
+{% endblock content %}
